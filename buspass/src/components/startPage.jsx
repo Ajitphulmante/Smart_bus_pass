@@ -1,6 +1,7 @@
 import React from "react";
 import LogIn from "./login";
 import SignIn from "./signin";
+import { useEffect } from "react";
 
 
 function StartPage(){
@@ -8,6 +9,14 @@ function StartPage(){
      let [newUser,setpage] = React.useState(null);
 
      let [component,setComponent] = React.useState(null);
+
+     useEffect(()=>{
+       
+               
+                //  window.location.reload(1);
+                 window.localStorage.setItem('data',["",""]);
+        
+     },[newUser])
      
      function user(arg1){
           setpage(newUser=arg1);
@@ -19,7 +28,7 @@ function StartPage(){
 
 
      return (
-         <div>
+         <div id='start-page'>
              <div id='startbtn'>
              <button onClick={()=>{user(false)}} className="startbtn">Already hava an Account</button>
              <button onClick={()=>{user(true)}} className="startbtn">New user</button></div>
